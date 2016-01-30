@@ -1,8 +1,8 @@
 # Load packages
 library(reshape)
 
-## Update the following line to set proper working directory
-workdir<-"C:/Users/vialgre/Desktop/DataScience/Getting and Cleaning Data/UCI HAR Dataset"
+## Update the following line to set proper working directory, by default assumes data is in the working dir
+#workdir<-"C:/Users/vialgre/Desktop/DataScience/Getting and Cleaning Data/UCI HAR Dataset"
 setwd(workdir)
 
 ## Load activity labels and features
@@ -48,4 +48,4 @@ tidy_data <- cast(melted_data,Subject+Activity_Name~variable, mean)
 
 ## Write the output
 file_name <- "tidy_data.txt"
-write.table(tidy_data,file_name)
+write.table(tidy_data,file_name,row.names=F)
