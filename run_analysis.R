@@ -45,3 +45,7 @@ names(useful_data) <- col_names
 ##  average of each variable for each activity and each subject
 melted_data <- melt(useful_data,id=c("Subject","Activity_ID","Activity_Name"))
 tidy_data <- cast(melted_data,Subject+Activity_Name~variable, mean)
+
+## Write the output
+file_name <- "tidy_data.txt"
+write.table(tidy_data,file_name)
